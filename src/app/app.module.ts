@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormComponent } from './task-form/task-form.component';
-import { PersonFormComponent } from './person-form/person-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
@@ -21,7 +20,6 @@ import {MatSelectModule} from '@angular/material/select';
     AppComponent,
     TaskListComponent,
     TaskFormComponent,
-    PersonFormComponent
   ],
   imports: [
     BrowserModule,

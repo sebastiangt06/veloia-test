@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, Form  } from '@angular/forms';
 import { TaskService } from '../services/task.service';
-import { ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-form',
@@ -29,7 +27,7 @@ export class TaskFormComponent {
     })
 
   }
-  constructor(private fb: FormBuilder, private taskService: TaskService, private router: Router){
+  constructor(private fb: FormBuilder, private taskService: TaskService){
     this.taskForm = this.fb.group({
       task:['', Validators.required],
       dateLimit: ['', Validators.required],
