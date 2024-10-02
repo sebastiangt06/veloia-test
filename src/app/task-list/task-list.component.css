@@ -31,3 +31,23 @@
     background-color: rgba(0, 0, 255, 0.1); /* Color de fondo para el botón activo */
     border: 1px solid blue; /* Bordes para el botón activo */
   }
+
+.filters-section{
+
+    
+        max-height: 600px; /* Ajusta la altura máxima según sea necesario */
+        overflow-y: auto; /* Habilita el desplazamiento vertical */
+        margin-top: 20px; /* Espacio superior para separación */
+        width: auto;
+      
+}
+
+.mat-button{
+    padding: 4px;
+}
+
+.abilities-container {
+    display: flex; /* Utiliza flexbox para alinear elementos */
+    gap: 5px;
+    justify-content: space-between;
+  }

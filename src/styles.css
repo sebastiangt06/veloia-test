@@ -7,6 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
 }
 body {
   margin: 0;

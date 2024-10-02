@@ -46,4 +46,9 @@ export class TaskListComponent{
     this.filter = filter;
     this.applyFilter(); // Aplica el filtro al cambiarlo
   }
+  
+  markAsCompleted(task: Task) {
+    const updatedTask = { ...task, completed: true }; // Crea una copia de la tarea y cambia completed a true
+    this.taskService.updateTask(updatedTask); // Actualiza la tarea en el servicio
+  }
 }

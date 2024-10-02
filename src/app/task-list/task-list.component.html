@@ -15,19 +15,29 @@
       <mat-list-item>
         <span matListItemTitle class="task-title">{{task.title}} - {{task.date}}</span>
         <div>
+          
           <span matListItemLine class="persons-tasks">Personas asociadas: {{task.persons[0].fullName}}</span>
+          
           <div *ngIf="task.persons.length > 0">
             <span matListItemLine class="abilities-class">Habilidades:
-            <span *ngFor="let person of task.persons">
-              <span *ngFor="let skill of person.abilities; let j = index" class="abilities">
-                {{skill}}<span *ngIf="j < person.abilities.length - 1">, </span>
+              <div class="abilities-container">
+              <span *ngFor="let person of task.persons">
+                <span *ngFor="let skill of person.abilities; let j = index" class="abilities">
+                  {{skill}}<span *ngIf="j < person.abilities.length - 1">, </span>
+                </span>
+                <span *ngIf="person !== task.persons[task.persons.length - 1]"> | </span>
               </span>
-              <span *ngIf="person !== task.persons[task.persons.length - 1]"> | </span>
-            </span>
+              <button class="mat-button" mat-raised-button color="accent" (click)="markAsCompleted(task)" [disabled]="task.completed">Completar</button>
+          </div>
           </span>
           </div>
+
         </div>
+        
       </mat-list-item>
+      <mat-divider></mat-divider>
     </mat-list>
+
   </div>
+
 </div>

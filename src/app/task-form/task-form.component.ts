@@ -102,7 +102,7 @@ export class TaskFormComponent {
       // Resetear el formulario después de guardar la tarea
       
       this.taskForm.reset();
-      this.router.navigate(['/tasklist']); 
+     // this.router.navigate(['/tasklist']); 
 
 
     }

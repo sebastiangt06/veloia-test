@@ -1,0 +1,14 @@
+
+.section-navigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+   
+}
+@media (max-width: 780px) {
+    .section-navigation{
+        margin: 5px;
+    }
+}

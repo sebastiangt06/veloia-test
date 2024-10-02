@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<router-outlet class="section">
+  <section class="section-navigation">
+    <button mat-flat-button color="primary" (click)="formNavigate()">
+      Añadir
+    </button>
+    <button mat-flat-button color="primary" (click)="listNavigate()">
+      Tareas
+    </button>
+  </section>
+</router-outlet>
