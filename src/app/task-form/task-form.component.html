@@ -1,0 +1,69 @@
+<mat-card class="card" appearance="outlined">
+  <mat-card-content>
+    <mat-card-title style="margin-bottom: 3px"
+      >Crea tu Nueva Tarea</mat-card-title
+    >
+    <form class="card" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre de la tarea:</mat-label>
+        <input matInput formControlName="task"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha limite</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateLimit"/>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <span>Personas asociadas:</span>
+      <!-- Personas asociadas -->
+      <div formArrayName="persons">
+        <div *ngFor="let person of persons.controls; let i = index" [formGroupName]="i">
+          <h3>Persona {{i + 1}}</h3>
+          
+          <!-- Nombre de la persona -->
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre completo</mat-label>
+            <input matInput formControlName="personName"/>
+          </mat-form-field>
+
+          <!-- Edad de la persona -->
+          <mat-form-field appearance="fill">
+            <mat-label>Edad</mat-label>
+            <input matInput formControlName="age" type="number"/>
+          </mat-form-field>
+
+          <!-- Habilidades de la persona -->
+          <div formArrayName="abilities">
+            <div *ngFor="let ability of abilities(i).controls; let j = index; trackBy: trackByIndex ">
+              <mat-form-field>
+                <mat-label>Habilidad {{j + 1}}</mat-label>
+                <input matInput [formControlName]="j"/>
+              </mat-form-field>
+              <button mat-button color="accent" (click)="removeAbility(i, j)">Borrar habilidad</button>
+            </div>
+          </div>
+
+          <!-- Añadir nueva habilidad -->
+          <mat-form-field>
+            <mat-label>Nueva habilidad:</mat-label>
+            <input matInput #newAbility />
+          </mat-form-field>
+          <button mat-button color="accent" (click)="addAbility(i, newAbility.value); newAbility.value='' ; newAbilityControl.reset(); $event.preventDefault()">Añadir habilidad</button>
+
+          <!-- Eliminar persona -->
+          <button mat-button color="warn" (click)="removePerson(i)">Eliminar persona</button>
+        </div>
+      </div>
+
+      <!-- Botón para añadir nueva persona -->
+      <button mat-button color="primary" (click)="addPerson(); $event.preventDefault()">Añadir persona</button>
+
+      <button [disabled]="taskForm.invalid" mat-flat-button color="primary">Guardar Tarea</button>
+    </form>
+  </mat-card-content>
+</mat-card>

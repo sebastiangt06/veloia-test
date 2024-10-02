@@ -1,0 +1,33 @@
+<div class="task-title">
+  <h1>Lista de Tareas!</h1>
+</div>
+
+<div class="filters-section">
+  <h3>Filtros</h3>
+  <div class="buttons-filters">
+    <button mat-stroked-button color="primary" (click)="setFilter('all')" [class.active]="filter === 'all'">Todos</button>
+    <button mat-stroked-button color="primary" (click)="setFilter('completed')" [class.active]="filter === 'completed'">Completadas</button>
+    <button mat-stroked-button color="primary" (click)="setFilter('pending')" [class.active]="filter === 'pending'">Pendientes</button>
+  </div>
+
+  <div *ngIf="filteredTasks.length > 0;">
+    <mat-list *ngFor="let task of filteredTasks;">
+      <mat-list-item>
+        <span matListItemTitle class="task-title">{{task.title}} - {{task.date}}</span>
+        <div>
+          <span matListItemLine class="persons-tasks">Personas asociadas: {{task.persons[0].fullName}}</span>
+          <div *ngIf="task.persons.length > 0">
+            <span matListItemLine class="abilities-class">Habilidades:
+            <span *ngFor="let person of task.persons">
+              <span *ngFor="let skill of person.abilities; let j = index" class="abilities">
+                {{skill}}<span *ngIf="j < person.abilities.length - 1">, </span>
+              </span>
+              <span *ngIf="person !== task.persons[task.persons.length - 1]"> | </span>
+            </span>
+          </span>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
