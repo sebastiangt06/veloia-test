@@ -33,8 +33,6 @@
   }
 
 .filters-section{
-
-    
         max-height: 600px; /* Ajusta la altura máxima según sea necesario */
         overflow-y: auto; /* Habilita el desplazamiento vertical */
         margin-top: 20px; /* Espacio superior para separación */
@@ -43,11 +41,19 @@
 }
 
 .mat-button{
-    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 5px;
 }
 
 .abilities-container {
     display: flex; /* Utiliza flexbox para alinear elementos */
     gap: 5px;
     justify-content: space-between;
+  }
+
+  .person-name{
+    font-weight: bold;
+    color: blueviolet;
   }

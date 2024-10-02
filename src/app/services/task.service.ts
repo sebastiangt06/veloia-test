@@ -24,14 +24,15 @@ export class TaskService {
       date: '2022-01-02',
       completed: false,
       persons: [
-        {id:1, fullName: 'John Doe', age: 25, abilities: ['Coding'] }
+        {id:1, fullName: 'John Doe', age: 25, abilities: ['Coding'] },
+        {id:2, fullName: 'Jane Schmith', age: 30, abilities: ['Drawing'] }
       ]
     },
     {
       id: 2,
       title: 'Tarea 2',
       date: '2022-01-02',
-      completed: true,
+      completed: false,
       persons: [
         { id:2, fullName: 'Jane Smith', age: 30, abilities: ['Design'] }
       ]
